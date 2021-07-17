@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <input type="text" onkeyup="myFunction()" value="" id="ip">
+    <table>
+        <tr>
+            <td id="tt"></td>
+        </tr>
+    </table>
+</body>
+<script>
+    var myInput = document.getElementById('ip');
+
+    var arr = [
+
+        {
+            name: 'nguyen van a',
+        },
+
+        {
+            name: 'nguyen van b',
+        },
+
+        {
+            name: 'nguyen van c',
+        },
+    ]
+
+
+    function myFunction() {
+        let strSearch = myInput.value;
+        let list = arr.filter(item => item.name.toLowerCase().includes(strSearch.toLowerCase()))
+        console.log('list', list)
+
+        function CALL(array) {
+            document.getElementById('tt').innerHTML = array.map((item) => {
+                return `<li class="flex">
+                      <p>${item.name}</p>
+                    </li>`;
+            });
+        }
+        CALL(list);
+
+    }
+</script>
+
+</html>
